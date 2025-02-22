@@ -1,11 +1,14 @@
 import express from "express";
-import { integrationSpec } from "./integrationSpec";
 import cors from "cors";
-const app = express();
+import bodyParser from "body-parser"; // ✅ Correct import
 
-const PORT = 3006;
-import bodyParser = require("body-parser");
+import { integrationSpec } from "./integrationSpec";
+
+const app = express();
+const PORT = process.env.PORT || 10000;
+
 app.use(cors());
+app.use(bodyParser.json()); // ✅ Ensure JSON parsing
 
 app.get("/", (req, res) => {
 	res.send("Hello World!");
@@ -21,5 +24,5 @@ app.post("/webhook", (req, res) => {
 });
 
 app.listen(PORT, () => {
-	console.log(`Express is listening at http://localhost:${PORT}`);
+	console.log(`Server is running at http://localhost:${PORT}`);
 });

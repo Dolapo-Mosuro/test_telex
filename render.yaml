@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: typescript-app
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node dist/app.js
+    envVars:
+      - key: PORT
+        value: 10000
