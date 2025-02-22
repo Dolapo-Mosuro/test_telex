@@ -1,7 +1,7 @@
 {
 	"name": "test-telex",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "dist/app.js",
 	"scripts": {
 		"build": "tsc",
 		"dev": "nodemon src/app.ts",
